@@ -6,3 +6,5 @@ pydantic==2.7.1
 python-multipart==0.0.9
 openai==1.37.0
 python-dotenv==1.0.1
+pymongo[srv]==3.12.3
+dnspython>=2.3
