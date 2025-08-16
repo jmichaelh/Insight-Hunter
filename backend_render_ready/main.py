@@ -167,3 +167,7 @@ async def get_report(report_id: str):
 async def health():
     ok = await db.command("ping")
     return {"ok": True, "mongo": ok.get("ok", 0) == 1}
+
+import logging
+logging.basicConfig(level=logging.INFO)
+logging.info("Insight Hunter backend is live and connected to MongoDB.")
