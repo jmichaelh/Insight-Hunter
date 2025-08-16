@@ -1,4 +1,5 @@
 import os, io, json, datetime
+from urllib.parse import quote_plus
 from dotenv import load_dotenv
 from typing import List, Dict, Any, Optional
 import pandas as pd
@@ -12,6 +13,19 @@ load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
 DB_NAME   = os.getenv("MONGO_DB", "insight_hunter")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+MONGO_USER = os.getenv("MONGO_USER", "")
+MONGO_PASS = os.getenv("MONGO_PASS", "")
+MONGO_HOST = os.getenv("MONGO_HOST", "localhost")
+MONGO_DB   = os.getenv("MONGO_DB", "app")
+
+user = quote_plus(MONGO_USER)
+pwd  = quote_plus(MONGO_PASS)
+
+MONGO_URI = f"mongodb+srv://{user}:{pwd}@{MONGO_HOST}/{MONGO_DB}?retryWrites=true&w=majority"
+
+mongo_client = AsyncIOMotorClient(MONGO_URI)
+db = mongo_client[MONGO_DB]
+
 
 try:
     from openai import OpenAI
