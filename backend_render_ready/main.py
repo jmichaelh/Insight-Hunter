@@ -7,6 +7,32 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 
+app = FastAPI(title="Insight Hunter API")
+
+# --- Build Mongo URI from env ---
+USER = quote_plus(os.getenv("MONGO_USER", ""))
+PASS = quote_plus(os.getenv("MONGO_PASS", ""))
+HOST = os.getenv("MONGO_HOST", "")
+DB   = os.getenv("MONGO_DB", "insighthunter")
+
+MONGO_URI = (
+    f"mongodb+srv://{USER}:{PASS}@{HOST}/{DB}"
+    f"?retryWrites=true&w=majority&authSource=admin&authMechanism=SCRAM-SHA-256&tls=true&appName=insighthunter"
+)
+
+client = AsyncIOMotorClient(MONGO_URI)
+db = client[DB]
+
+@app.get("/dbtest", tags=["meta"])
+async def dbtest():
+    """Ping Atlas to confirm authentication and connectivity."""
+    try:
+        res = await db.command("ping")
+        return {"ok": res["ok"], "db": DB, "user": USER}
+    except Exception as e:
+        return {"ok": 0, "error": str(e)}
+
+
 # Load .env in local/dev (Render uses dashboard env vars)
 load_dotenv()
 
