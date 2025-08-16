@@ -1,0 +1,57 @@
+{
+  "info": {
+    "name": "Insight Hunter API",
+    "_postman_id": "insight-hunter",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "Generate Report",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "samples/sample_balanced.csv"
+            },
+            {
+              "key": "client_name",
+              "value": "Demo Client",
+              "type": "text"
+            },
+            {
+              "key": "period",
+              "value": "2025-08",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{baseUrl}}/generate-report"
+      }
+    },
+    {
+      "name": "List Reports",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/reports"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:10000"
+    }
+  ]
+}
