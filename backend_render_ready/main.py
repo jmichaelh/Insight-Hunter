@@ -15,9 +15,7 @@ PASS = quote_plus(os.getenv("MONGO_PASS", ""))
 HOST = os.getenv("MONGO_HOST", "")
 DB   = os.getenv("MONGO_DB", "insighthunter")
 
-MONGO_URI = (
-    f"mongodb+srv://{USER}:{PASS}@{HOST}/{DB}?retryWrites=true&w=majority&authSource=admin&authMechanism=SCRAM-SHA-256&tls=true&appName=insighthunter"
-)
+MONGO_URI = f"mongodb+srv://{USER}:{PASS}@{HOST}/{DB}?retryWrites=true&w=majority&authSource=admin&authMechanism=SCRAM-SHA-256&tls=true&appName=insighthunter"
 
 client = AsyncIOMotorClient(MONGO_URI)
 db = client[DB]
@@ -46,8 +44,7 @@ MONGO_DB   = os.getenv("MONGO_DB", "app")
 user = quote_plus(MONGO_USER)
 pwd  = quote_plus(MONGO_PASS)
 
-MONGO_URI = f"mongodb+srv://{USER}:{PASS}@{HOST}/{DB}"
-            f"?retryWrites=true&w=majority&authSource=admin&authMechanism=SCRAM-SHA-256&tls=true&appName=insighthunter"
+MONGO_URI = f"mongodb+srv://{USER}:{PASS}@{HOST}/{DB}?retryWrites=true&w=majority&authSource=admin&authMechanism=SCRAM-SHA-256&tls=true&appName=insighthunter"
 
 mongo_client = AsyncIOMotorClient(MONGO_URI)
 db = mongo_client[MONGO_DB]
