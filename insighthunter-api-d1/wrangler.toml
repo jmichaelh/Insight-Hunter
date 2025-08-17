@@ -6,3 +6,9 @@ compatibility_date = "2025-08-16"
 binding = "env.DB"
 database_name = "env.DB"
 database_id = "insighthunter_db"
+
+{
+  "ai": {
+    "binding": "AI"
+  }
+}
