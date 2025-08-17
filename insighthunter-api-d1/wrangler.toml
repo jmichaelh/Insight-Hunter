@@ -1,0 +1,8 @@
+name = "insighthunter-api"
+main = "src/index.ts"
+compatibility_date = "2025-08-16"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "insighthunter_db"
+database_id = "<REPLACE_WITH_DATABASE_ID>"

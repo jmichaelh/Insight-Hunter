@@ -1,0 +1,8 @@
+name = "insighthunter-api"
+main = "src/index.ts"
+compatibility_date = "2025-08-16"
+
+# Add custom route later if desired:
+# routes = [
+#   { pattern = "api.hunterturner.com/*", zone_name = "hunterturner.com" }
+# ]

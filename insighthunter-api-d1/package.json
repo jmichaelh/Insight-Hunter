@@ -1,0 +1,22 @@
+{
+  "name": "insighthunter-api-d1",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "migrate:create": "wrangler d1 migrations create insighthunter_db $npm_config_name",
+    "migrate:apply": "wrangler d1 migrations apply insighthunter_db",
+    "migrate:list": "wrangler d1 migrations list insighthunter_db",
+    "tail": "wrangler tail"
+  },
+  "dependencies": {
+    "hono": "^4.6.7"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240821.0",
+    "typescript": "^5.5.4",
+    "wrangler": "^4.30.0"
+  }
+}
