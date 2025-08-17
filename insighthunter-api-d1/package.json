@@ -19,11 +19,5 @@
     "typescript": "^5.5.4",
     "wrangler": "^4.30.0"
   }
-  "d1_databases": [
-    {
-      "binding": "env.DB",
-      "database_name": "env.DB",
-      "database_id": "insighthunter_DB"
-    }
-  ]
+
 }
