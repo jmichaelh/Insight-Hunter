@@ -4,5 +4,10 @@ compatibility_date = "2025-08-16"
 
 # Add custom route later if desired:
 # routes = [
-#   { pattern = "api.hunterturner.com/*", zone_name = "hunterturner.com" }
-# ]
+#   { pattern = "api.hunterturner.com/*", zone_name = "insight.hunterturner.com" }
+
+
+[[d1_databases]]
+binding = "env.DB"
+database_name = "env.DB"
+database_id = "insighthunter_DB"

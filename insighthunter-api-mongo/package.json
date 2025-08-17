@@ -16,4 +16,11 @@
     "@cloudflare/workers-types": "^4.20240821.0",
     "wrangler": "^3.72.0"
   }
+  "d1_databases": [
+    {
+      "binding": "env.DB",
+      "database_name": "env.DB",
+      "database_id": "insighthunter_DB"
+    }
+  ]
 }
