@@ -4,6 +4,6 @@ compatibility_date = "2025-08-16"
 
 [[d1_databases]]
 binding = "env.DB"
-database_name = "env.DB"
-database_id = "insighthunter_db"
+database_name = "insighthunter_db"
+database_id = "057bdd0c-f28b-48b8-a6b"
 
